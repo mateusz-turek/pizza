@@ -1,4 +1,4 @@
-package com.mat.pizza;
+package com.mat.pizza.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
