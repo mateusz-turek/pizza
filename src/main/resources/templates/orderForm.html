@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<form method="post" th:action="@{/order}" th:object="${place}">
+    <h1>Provide to us your whereabouts</h1>
+    <a href="/pizza" id="another"> Change your pizza</a><br>
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Something went wrong
+        </span>
+    </div>
+
+    <h3> Fill the input text</h3>
+
+    <label for="name"> type name: </label>
+    <input type="text" id="name" th:field="*{name}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('name')}"> String
+        </span> <br>
+
+
+    <label for="street"> type street:</label>
+    <input type="text" id="street" th:field="*{street}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('street')}"> String
+        </span> <br>
+
+
+    <label for="city"> type city:</label>
+    <input type="text" id="city" th:field="*{city}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('city')}"> String
+        </span> <br>
+
+
+    <label for="state"> type state:</label>
+    <input type="text" id="state" th:field="*{state}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('state')}"> String
+        </span> <br>
+
+
+    <label for="zipCode"> type zip code:</label>
+    <input type="text" id="zipCode" th:field="*{zipCode}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('zipCode')}"> String
+        </span> <br>
+
+
+    <label for="ccN"> type cc number:</label>
+    <input type="text" id="ccN" th:field="*{ccNumber}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccNumber')}"> example: 12341234123412341234
+        </span> <br>
+
+
+    <label for="ccE"> type cc Expiration:</label>
+    <input type="text" id="ccE" th:field="*{ccExpiration}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccExpiration')}"> mm/yy format example: 03/21
+        </span> <br>
+
+
+    <label for="ccC"> type ccCVV:</label>
+    <input type="text" id="ccC" th:field="*{ccCVV}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccCVV')}"> three digits
+        </span> <br>
+
+
+    <input type="submit" value="Send request">
+</form>
+
+</body>
+</html>

@@ -1,6 +1,5 @@
 package com.mat.pizza.Controller;
 
-
 import com.mat.pizza.Model.Ingredient.Cheese;
 import com.mat.pizza.Model.Ingredient.Meat;
 import com.mat.pizza.Model.Ingredient.PizzaDough;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/order")
+@RequestMapping("/pizza")
 public class PizzaController {
 
     @GetMapping
@@ -40,7 +39,7 @@ public class PizzaController {
     public String processDesign(PizzaDough pizzaDough, Sauce sauce, Cheese cheese, Meat meat) {
          Pizza pizza = new Pizza (new Ingredients(pizzaDough,sauce,cheese,meat));
         log.info(String.valueOf(pizza));
-        return "redirect:/order";
+        return "redirect:/order/place";
     }
 
 

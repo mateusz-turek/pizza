@@ -7,5 +7,6 @@ import lombok.RequiredArgsConstructor;
 @Data
 public class Pizza {
 
+
     private final Ingredients ingredients;
 }

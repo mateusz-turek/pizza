@@ -7,9 +7,11 @@ import com.mat.pizza.Model.Ingredient.Sauce;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+
 @Data
 @RequiredArgsConstructor
 public class Ingredients {
+
 
     final private PizzaDough pizzaDough;
     final private Sauce sauce;
