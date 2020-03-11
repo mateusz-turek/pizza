@@ -1,15 +1,19 @@
 package com.mat.pizza.Model.Ingredient;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
+@Entity
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Meat {
 
-    private final Type meatType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public enum Type{
-        SALAMI, CHICKEN, PORK
-    }
+    private String meatType;
+
 }

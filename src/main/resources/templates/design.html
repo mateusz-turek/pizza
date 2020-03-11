@@ -10,11 +10,11 @@
 <form method="post" >
     <div class="ingredient-list">
         <h3> Choose pizza dough:</h3>
-    <div th:each="doughs:${pizzaDough}">
+    <div th:each="doughsTh:${pizzaDough}">
         <label>
-            <input name="dough" type="radio" th:value="${doughs.name()}"/>
+            <input name="doughType" type="radio" th:value="${doughsTh}"/>
         </label>
-        <span th:text="${doughs.name()}"></span>
+        <span th:text="${doughsTh.getDough().name()}"></span>
     </div>
     </div>
 
@@ -22,9 +22,9 @@
         <h3> Choose sauce:</h3>
     <div th:each="saucesTh:${sauces}">
         <label>
-            <input name="sauce" type="radio" th:value="${saucesTh.name()}"/>
+            <input name="sauceType" type="radio" th:value="${saucesTh}"/>
         </label>
-        <span th:text="${saucesTh.name()}"></span>
+        <span th:text="${saucesTh.getSauceType()}"></span>
     </div>
         </div>
 
@@ -32,9 +32,9 @@
         <h3> Choose cheese:</h3>
     <div th:each="cheesesTh:${cheeses}">
         <label>
-            <input name="cheeseType" type="radio" th:value="${cheesesTh.name()}"/>
+            <input name="cheeseType" type="radio" th:value="${cheesesTh}"/>
         </label>
-        <span th:text="${cheesesTh.name()}"></span>
+        <span th:text="${cheesesTh.getCheeseType()}"></span>
     </div>
         </div>
 
@@ -42,9 +42,9 @@
         <h3> Choose meat:</h3>
     <div th:each="meatsTh:${meats}">
         <label>
-            <input name="meatType" type="radio" th:value="${meatsTh.name()}"/>
+            <input name="meatType" type="radio" th:value="${meatsTh}"/>
         </label>
-        <span th:text="${meatsTh.name()}"></span>
+        <span th:text="${meatsTh.getMeatType()}"></span>
     </div>
         </div>
     <button> Order now </button>

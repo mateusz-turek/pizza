@@ -1,14 +1,24 @@
 package com.mat.pizza.Model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@Entity
 public class Place {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Date dateOfOrder;
 
     @NotBlank(message = "sample note")
     private String name;
@@ -26,4 +36,9 @@ public class Place {
     private String ccExpiration;
     @Digits(integer = 3, fraction = 0, message = "sample message")
     private String ccCVV;
+
+    @PrePersist
+    void createDate(){
+        this.dateOfOrder = new Date();
+    }
 }

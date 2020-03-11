@@ -1,12 +1,15 @@
 package com.mat.pizza.Model;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@RequiredArgsConstructor
+
+
 @Data
+@NoArgsConstructor
 public class Pizza {
 
+    private  Long id;
 
-    private final Ingredients ingredients;
+    private Ingredients ingredients;
 }

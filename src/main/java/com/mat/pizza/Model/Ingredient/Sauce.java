@@ -1,15 +1,19 @@
 package com.mat.pizza.Model.Ingredient;
 
+import com.mat.pizza.Model.Ingredients;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Sauce {
 
-    private final Type sauce;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public enum Type{
-        Spicy, Mild
-    }
+    private String sauceType;
 }

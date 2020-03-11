@@ -1,15 +1,19 @@
 package com.mat.pizza.Model.Ingredient;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Cheese {
 
-    private final Type cheeseType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public enum Type{
-        GOUDA, CHEDDAR
-    }
+    private String cheeseType;
 }
