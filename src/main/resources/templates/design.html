@@ -7,48 +7,86 @@
     <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
-<form method="post" >
+<form method="post">
     <div class="ingredient-list">
         <h3> Choose pizza dough:</h3>
-    <div th:each="doughsTh:${pizzaDough}">
-        <label>
-            <input name="doughType" type="radio" th:value="${doughsTh}"/>
-        </label>
-        <span th:text="${doughsTh.getDough().name()}"></span>
-    </div>
+        <div th:each="doughsTh:${pizzaDough}">
+            <label>
+                <input name="doughType" type="radio" th:value="${doughsTh}"/>
+            </label>
+            <span th:text="${doughsTh.getDough().name()}"></span>
+        </div>
     </div>
 
     <div class="ingredient-list">
         <h3> Choose sauce:</h3>
-    <div th:each="saucesTh:${sauces}">
-        <label>
-            <input name="sauceType" type="radio" th:value="${saucesTh}"/>
-        </label>
-        <span th:text="${saucesTh.getSauceType()}"></span>
-    </div>
+        <div th:each="saucesTh:${sauces}">
+            <label>
+                <input name="sauceType" type="radio" th:value="${saucesTh}"/>
+            </label>
+            <span th:text="${saucesTh.getSauceType()}"></span>
         </div>
+    </div>
 
     <div class="ingredient-list">
         <h3> Choose cheese:</h3>
-    <div th:each="cheesesTh:${cheeses}">
-        <label>
-            <input name="cheeseType" type="radio" th:value="${cheesesTh}"/>
-        </label>
-        <span th:text="${cheesesTh.getCheeseType()}"></span>
-    </div>
+        <div th:each="cheesesTh:${cheeses}">
+            <label>
+                <input name="cheeseType" type="radio" th:value="${cheesesTh}"/>
+            </label>
+            <span th:text="${cheesesTh.getCheeseType()}"></span>
         </div>
+    </div>
 
     <div class="ingredient-list">
         <h3> Choose meat:</h3>
-    <div th:each="meatsTh:${meats}">
-        <label>
-            <input name="meatType" type="radio" th:value="${meatsTh}"/>
-        </label>
-        <span th:text="${meatsTh.getMeatType()}"></span>
-    </div>
+        <div th:each="meatsTh:${meats}">
+            <label>
+                <input name="meatType" type="radio" th:value="${meatsTh}"/>
+            </label>
+            <span th:text="${meatsTh.getMeatType()}"></span>
         </div>
-    <button> Order now </button>
+    </div>
+
+    <div class="ingredient-list">
+        <h3> Name your composition:</h3>
+        <label>
+            <input name="compositionName" type="text"/>
+        </label>
+    </div>
+    </div>
+
+
+    <button> Order now</button>
 </form>
 
+<h3>latest compositions:</h3>
+<table border="5">
+    <tr>
+        <th colspan="2">
+            <h3>Composition name:</h3>
+        </th>
+        <th colspan="2">
+            <h3>Dough:</h3>
+        </th>
+        <th colspan="2">
+            <h3>Sauce:</h3>
+        </th>
+        <th colspan="2">
+            <h3>Cheese:</h3>
+        </th>
+        <th colspan="2">
+            <h3>Meat:</h3>
+        </th>
+    </tr>
+
+    <tr th:each="ingredientsTh:${ingredients}">
+        <td colspan="2" th:text="${ingredientsTh.getCompositionName()}"></td>
+        <td colspan="2" th:text="${ingredientsTh.getPizzaDough().getDough()}"></td>
+        <td colspan="2" th:text="${ingredientsTh.getSauce().getSauceType()}"></td>
+        <td colspan="2" th:text="${ingredientsTh.getCheese().getCheeseType()}"></td>
+        <td colspan="2" th:text="${ingredientsTh.getMeat().getMeatType()}"></td>
+    </tr>
+</table>
 </body>
 </html>

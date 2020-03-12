@@ -21,4 +21,12 @@ public class CheeseRepositoryImplementation {
     public Iterable<Cheese> findAll(){
         return cheeseRepository.findAll();
     }
+
+    public Cheese findCheeseById(Long id){
+        return cheeseRepository.findCheeseById(id);
+    }
+    public Cheese findCheeseByType (String type){
+        return cheeseRepository.findCheeseByCheeseType(type);
+    }
+
 }

@@ -1,7 +1,9 @@
 package com.mat.pizza.Controller;
 
 import com.mat.pizza.Model.Place;
+import com.mat.pizza.data.PlaceRepositoryImplementation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -16,6 +18,13 @@ import javax.validation.Valid;
 @RequestMapping("/order")
 public class OrderController {
 
+    private PlaceRepositoryImplementation placeRepositoryImplementation;
+
+    @Autowired
+    public OrderController(PlaceRepositoryImplementation placeRepositoryImplementation) {
+        this.placeRepositoryImplementation = placeRepositoryImplementation;
+    }
+
     @GetMapping("/place")
     public String main(Model model) {
         model.addAttribute("place",new Place());
@@ -26,6 +35,7 @@ public class OrderController {
         if (errors.hasErrors()){
             return "orderForm";
         }
+        placeRepositoryImplementation.save(place);
         log.info(String.valueOf(place));
         return "redirect:/";
     }
