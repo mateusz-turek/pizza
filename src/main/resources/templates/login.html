@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza</title>
+</head>
+<body>
+<div th:if="${error}">
+    Unsuccessful attempt, please type your credentials again
+</div>
+<form method="post" th:action="@{/auth}" id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" name="user" id="username">
+
+    <label for="password">Password: </label>
+    <input type="text" name="pwd" id="password">
+
+    <input type="submit" value="log in">
+</form>
+
+<form method="post" th:action="@{/logout}">
+    <input type="submit" value="log out">
+</form>
+</body>
+</html>

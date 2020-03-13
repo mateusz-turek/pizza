@@ -8,17 +8,21 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @Entity
-public class Place {
+public class Place implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Date dateOfOrder;
+
+    @ManyToOne
+    private User user;
 
     @NotBlank(message = "sample note")
     private String name;

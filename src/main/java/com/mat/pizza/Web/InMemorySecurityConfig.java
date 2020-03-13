@@ -40,7 +40,14 @@ public class InMemorySecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasRole("USER")
                 .and()
                 .formLogin()
-                .permitAll();
+                .loginPage("/login")
+                .loginProcessingUrl("/auth")
+                .usernameParameter("user")
+                .passwordParameter("pwd")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/");
     }
 
     /*  @Override
@@ -54,7 +61,7 @@ public class InMemorySecurityConfig extends WebSecurityConfigurerAdapter {
 
        */
     @Bean
-    public PasswordEncoder encoder(){
+    public PasswordEncoder encoder() {
         return new StandardPasswordEncoder("SampleSecret");
     }
 }

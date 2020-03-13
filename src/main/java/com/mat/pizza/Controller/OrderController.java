@@ -1,7 +1,9 @@
 package com.mat.pizza.Controller;
 
 import com.mat.pizza.Model.Place;
+import com.mat.pizza.Model.User;
 import com.mat.pizza.data.PlaceRepositoryImplementation;
+import com.mat.pizza.data.UserRepositoryImplementation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,10 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Slf4j
 @Controller
@@ -19,10 +23,13 @@ import javax.validation.Valid;
 public class OrderController {
 
     private PlaceRepositoryImplementation placeRepositoryImplementation;
+    private UserRepositoryImplementation userRepositoryImplementation;
 
     @Autowired
-    public OrderController(PlaceRepositoryImplementation placeRepositoryImplementation) {
+    public OrderController(PlaceRepositoryImplementation placeRepositoryImplementation,
+                           UserRepositoryImplementation userRepositoryImplementation) {
         this.placeRepositoryImplementation = placeRepositoryImplementation;
+        this.userRepositoryImplementation = userRepositoryImplementation;
     }
 
     @GetMapping("/place")
@@ -31,10 +38,13 @@ public class OrderController {
         return "orderForm";
     }
     @PostMapping
-    public String processOrder(@Valid Place place, Errors errors){
+    public String processOrder(@Valid Place place, Errors errors, SessionStatus sessionStatus,
+                               Principal principal){
         if (errors.hasErrors()){
             return "orderForm";
         }
+        User user = userRepositoryImplementation.findUserByName(principal.getName());
+        place.setUser(user);
         placeRepositoryImplementation.save(place);
         log.info(String.valueOf(place));
         return "redirect:/";
