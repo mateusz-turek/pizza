@@ -30,6 +30,7 @@ public class User implements UserDetails {
     private final String name;
     private final String surname;
     private final String eMail;
+    private final String password;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -38,12 +39,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.eMail;
     }
 
     @Override

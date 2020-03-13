@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
-<form method="post">
+<form method="post" th:action="@{/pizza}">
     <div class="ingredient-list">
         <h3> Choose pizza dough:</h3>
         <div th:each="doughsTh:${pizzaDough}">

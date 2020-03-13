@@ -15,4 +15,8 @@ public class UserRepositoryImplementation {
     public User findUserByName(String name){
        return userRepository.findUserByName(name);
     }
+
+    public void save (User user){
+        userRepository.save(user);
+    }
 }
