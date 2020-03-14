@@ -22,4 +22,8 @@ public class PizzaDoughRepositoryImplementation {
     public Iterable<PizzaDough> findAll(){
         return pizzaDoughRepository.findAll();
     }
+
+    public long count (){
+        return pizzaDoughRepository.count();
+    }
 }

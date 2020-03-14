@@ -10,4 +10,7 @@ public interface CheeseRepository extends CrudRepository<Cheese,Long> {
 
     Cheese findCheeseById (Long id);
     Cheese findCheeseByCheeseType(String type);
+
+    @Override
+    long count();
 }

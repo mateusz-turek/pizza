@@ -21,4 +21,8 @@ public class MeatRepositoryImplementation  {
     public Iterable<Meat> findAll(){
        return meatRepository.findAll();
     }
+
+    public long count (){
+        return meatRepository.count();
+    }
 }

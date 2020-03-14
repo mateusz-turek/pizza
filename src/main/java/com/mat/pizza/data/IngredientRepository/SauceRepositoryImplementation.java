@@ -22,4 +22,8 @@ public class SauceRepositoryImplementation {
     public Iterable<Sauce> findAll(){
         return sauceRepository.findAll();
     }
+
+    public long count (){
+        return sauceRepository.count();
+    }
 }

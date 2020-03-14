@@ -18,6 +18,9 @@ public class CheeseRepositoryImplementation {
         cheeseRepository.save(cheese);
     }
 
+    public long count (){
+       return cheeseRepository.count();
+    }
     public Iterable<Cheese> findAll(){
         return cheeseRepository.findAll();
     }

@@ -12,7 +12,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -38,7 +37,7 @@ public class OrderController {
         return "orderForm";
     }
     @PostMapping
-    public String processOrder(@Valid Place place, Errors errors, SessionStatus sessionStatus,
+    public String processOrder(@Valid Place place, Errors errors,
                                Principal principal){
         if (errors.hasErrors()){
             return "orderForm";
@@ -47,6 +46,10 @@ public class OrderController {
         place.setUser(user);
         placeRepositoryImplementation.save(place);
         log.info(String.valueOf(place));
+
+      //  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+      //  User user1 = (User) authentication.getPrincipal();
+
         return "redirect:/";
     }
 }
