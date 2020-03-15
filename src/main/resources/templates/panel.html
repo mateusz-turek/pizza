@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Pizza</title>
 </head>
 <body>
 <h1>Panel, Hello Admin</h1>
+<tr th:each="ordersTh:${orders}">
+    <td colspan="2" th:text="${ordersTh.getUser()}"></td>
+    <td colspan="2" th:text="${ordersTh.getDateOfOrder()}"></td>
+    <td colspan="2" th:text="${ordersTh.getCity()}"></td>
+    <td colspan="2" th:text="${ordersTh.getStreet()}"></td>
+</tr>
 
 </body>
 </html>

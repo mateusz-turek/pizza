@@ -1,0 +1,7 @@
+{"properties": [
+  {
+    "name": "page.size" ,
+    "type": "java.lang.Integer",
+    "description": "set the maximum limit of orders to show to the admin."
+  }
+]}
