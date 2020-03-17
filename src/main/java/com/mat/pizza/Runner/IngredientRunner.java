@@ -1,20 +1,9 @@
 package com.mat.pizza.Runner;
 
-import com.mat.pizza.Model.Ingredient.Cheese;
-import com.mat.pizza.Model.Ingredient.Meat;
-import com.mat.pizza.Model.Ingredient.PizzaDough;
-import com.mat.pizza.Model.Ingredient.Sauce;
-import com.mat.pizza.data.IngredientRepository.CheeseRepositoryImplementation;
-import com.mat.pizza.data.IngredientRepository.MeatRepositoryImplementation;
-import com.mat.pizza.data.IngredientRepository.PizzaDoughRepositoryImplementation;
-import com.mat.pizza.data.IngredientRepository.SauceRepositoryImplementation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class IngredientRunner implements ApplicationRunner {
+public class IngredientRunner {}/*implements ApplicationRunner {
 
     private MeatRepositoryImplementation meatRepositoryImplementation;
     private CheeseRepositoryImplementation cheeseRepositoryImplementation;
@@ -75,4 +64,4 @@ public class IngredientRunner implements ApplicationRunner {
 
 
     }
-}
+}*/

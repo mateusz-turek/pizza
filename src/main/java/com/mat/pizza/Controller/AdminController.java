@@ -3,14 +3,13 @@ package com.mat.pizza.Controller;
 import com.mat.pizza.Configuration.OrderSize;
 import com.mat.pizza.data.PlaceRepositoryImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.awt.print.Pageable;
+
 
 @Controller
 @RequestMapping("/panel")
